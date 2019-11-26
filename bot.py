@@ -6,45 +6,26 @@ import pytesseract
 from PIL import Image
 
 letters = [chr(i) for i in range(97,120,1)]
+DELAY = 2
 
-time.sleep(2)
+time.sleep(DELAY)
 pos = []
 for p in pyautogui.locateAllOnScreen('images/wpm.PNG',confidence=0.95):
     pos.append(p)
 pos = sorted(pos, key=lambda p: p.top)
 last = pos[-1]
 print(pos)
-#    print(p)
-num = 0
-while num < len(pos):
-    box = pos[num]
-    for num2 in range(len(pos) - num - 1):
-        box2 = pos[num2+1]
-        #Get rid of overlapping boxes (probably the same thing)
-        if not (box.left > box2.left + box2.width or box2.left > box.left + box.width or box2.top > box.top + box.height or box.top > box2.top + box2.height):
-            pos.remove(box)
-            num -= 1
-            break
-    num += 1
-#print(pos)
-#p = pyautogui.locateOnScreen('images/change_display_format.PNG',confidence=0.97)
+
 p = pyautogui.locateOnScreen('images/change_display2.PNG',confidence=0.97)
-#pos.append(p)
-#gop = pyautogui.locateOnScreen('images/blue_arrow.PNG',confidence=0.97)
-#gop = pyautogui.locateOnScreen('images/go.PNG',confidence=0.97)
 gop = pyautogui.locateOnScreen('images/leave_race.PNG',confidence=0.97)
 print(gop)
-#print(p)
-#pos3 = pos[len(pos)-1]
-#pos1 = pos[len(pos)-1]
-#print(gop,pos1,p)
-#top = gop.top
+
 top = last.top + last.height + 25
 bottom = p.top
 left = gop.left + 5
 right = p.left + p.width
 im = pyautogui.screenshot(region=(left, top, right - left, bottom - top))
-#print(pos3.top - pos1.top - pos1.height)
+
 image = numpy.array(im)
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 gray = cv2.GaussianBlur(gray, (5, 5), 0)
