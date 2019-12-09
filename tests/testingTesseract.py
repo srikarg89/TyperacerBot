@@ -8,13 +8,14 @@ from PIL import Image
 time.sleep(1)
 
 
-typeImg = pyautogui.locateOnScreen('images/captchaType.PNG',confidence=0.95)
-submitImg = pyautogui.locateOnScreen('images/captchaSubmit.PNG',confidence=0.95)
+typeImg = pyautogui.locateOnScreen('../images/captchaType.PNG',confidence=0.95)
+submitImg = pyautogui.locateOnScreen('../images/captchaSubmit.PNG',confidence=0.95)
 left = typeImg.left + 8
 right = submitImg.left + submitImg.width - 15
 top = typeImg.top + typeImg.height + 15
 bottom = submitImg.top - 135
 image = numpy.array(pyautogui.screenshot(region=(left, top, right - left, bottom - top)))
+#image = cv2.imread("../images/testChallenge.PNG")
 
 #image = cv2.imread("images/testChallenge.PNG")
 #cv2.imshow("image",image)
@@ -60,12 +61,13 @@ for index in range(len(text)):
         arr.append(i)
 
 print(text)
-string = []
-count = 1
-for i in arr:
-    string.append(i)
-    if count % 5 == 0:
-        pyautogui.press(string)
-        string = []
-    count += 1
-pyautogui.press(string)
+pyautogui.press([*text])
+#string = []
+#count = 1
+#for i in arr:
+#    string.append(i)
+#    if count % 5 == 0:
+#        pyautogui.press(string)
+#        string = []
+#    count += 1
+#pyautogui.press(string)

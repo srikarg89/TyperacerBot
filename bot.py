@@ -27,6 +27,7 @@ right = p.left + p.width
 im = pyautogui.screenshot(region=(left, top, right - left, bottom - top))
 
 image = numpy.array(im)
+
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 gray = cv2.GaussianBlur(gray, (5, 5), 0)
 ret, thresh = cv2.threshold(gray, 200, 255, cv2.THRESH_BINARY)
@@ -60,7 +61,7 @@ string = []
 count = 1
 for i in arr:
     string.append(i)
-    if count % 4 == 0:
+    if count % 6 == 0:
         pyautogui.press(string)
         string = []
     count += 1

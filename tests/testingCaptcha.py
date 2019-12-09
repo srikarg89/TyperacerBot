@@ -41,7 +41,7 @@ im = pyautogui.screenshot(region=(left, top, right - left, bottom - top))
 #print(pos3.top - pos1.top - pos1.height)
 """
 
-image = cv2.imread("images/testChallenge.PNG")
+image = cv2.imread("../images/testChallenge.PNG")
 for row in range(len(image)):
     for col in range(len(image[row])):
         pixel = image[row][col]
@@ -55,7 +55,8 @@ for row in range(len(image)):
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 #gray = cv2.GaussianBlur(gray, (5, 5), 0)
 ret, thresh = cv2.threshold(gray, 170, 255, cv2.THRESH_BINARY)
-_,cnts,_ = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_NONE)
+_,cnts = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_NONE)
+print(len(cnts))
 for c in cnts:
     rect = cv2.boundingRect(c)
     cv2.contourArea(c)
