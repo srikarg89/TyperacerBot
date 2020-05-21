@@ -10,14 +10,15 @@ DELAY = 2
 
 time.sleep(DELAY)
 pos = []
-for p in pyautogui.locateAllOnScreen('images/wpm.PNG',confidence=0.95):
+for p in pyautogui.locateAllOnScreen('images/wpm.PNG',confidence=0.9):
     pos.append(p)
 pos = sorted(pos, key=lambda p: p.top)
 last = pos[-1]
 print(pos)
 
-p = pyautogui.locateOnScreen('images/change_display2.PNG',confidence=0.97)
-gop = pyautogui.locateOnScreen('images/leave_race.PNG',confidence=0.97)
+p = pyautogui.locateOnScreen('images/change_display2.PNG',confidence=0.9)
+gop = pyautogui.locateOnScreen('images/leave_race.PNG',confidence=0.9)
+print(p)
 print(gop)
 
 top = last.top + last.height + 25
