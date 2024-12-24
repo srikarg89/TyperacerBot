@@ -25,4 +25,4 @@ python bot.py
 and switch back to the typeracer screen within two seconds of running the code. You can change this delay by changing the DELAY variable in [bot.py](bot.py).
 
 ### High score
-My high score so far is 267, let me know if you do better! Shoot me an email at srikarg89@gmail.com.
+My high score so far is 267, let me know if you do better!
