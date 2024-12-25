@@ -79,6 +79,8 @@ def clean_text(text):
     text = text.replace("|","I")
     text = text.replace("[","I")
     text = text.replace("]","I")
+    text = text.replace("}","I")
+    text = text.replace("{","I")
 
     # Following a period, the next letter should be capitalized.
     updated_text = ""
@@ -88,7 +90,7 @@ def clean_text(text):
             # The paragraph never ends in a comma.
             if index + 2 >= len(text):
                 updated_text += "."
-            elif ord(text[index+2]) >= 65 and ord(text[index+2]) <= 90:
+            elif (ord(text[index+2]) >= 65 and ord(text[index+2]) <= 90) or (ord(text[index+3]) >= 65 and ord(text[index+3]) <= 90):
                 updated_text += "."
             else:
                 updated_text += ","

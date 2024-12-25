@@ -23,5 +23,4 @@ thresh = threshold_image(image, False)
 text = pytesseract.image_to_string(Image.fromarray(thresh), lang='eng')
 text = clean_text(text)
 print(text)
-# The 200 is used to limit the WPM output. If it types too fast the website disallows you from typing.
-output_text(text, 200)
+output_text(text)

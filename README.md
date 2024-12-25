@@ -24,5 +24,10 @@ python bot.py
 ```
 and switch back to the typeracer screen within two seconds of running the code. You can change this delay by changing the DELAY variable in [bot.py](bot.py).
 
+For the CAPTCHA, perform the same procedure, but use [captcha.py](captcha.py) instead of bot.py.
+
 ### High score
-My high score so far is 267, let me know if you do better!
+My high score so far is 437 WPM, let me know if you do better!
+
+![](CAPTCHA%20420.png)
+![](First%20Place%20437.png)
